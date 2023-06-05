@@ -10,6 +10,7 @@ public class Dictionary {
     private static final int fistBoxSize = 256;
     private static final int secondBoxSize = 4096;
     private static final Map<String, Integer> INDEX_BY_WORD = new HashMap<>();
+    private static final Map<String, String> WORD_BY_INDEX = new HashMap<>();
 
     public String getCorrespondingNumber(String word) {
         String lengthBinary = this.getLengthBinary(word.length());
@@ -36,6 +37,11 @@ public class Dictionary {
         }
 
         return lengthBinary + p;
+    }
+
+    public String getCorrespondingWord(String bitStream) {
+
+        return WORD_BY_INDEX.get(bitStream);
     }
 
     private String getLengthBinary(int length) {

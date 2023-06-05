@@ -13,6 +13,10 @@ public enum Category {
         this.symbol = symbol;
     }
 
+    public static boolean contains(char c) {
+        return c == DOT.symbol || c == UNDERLINE.symbol || c == DASH.symbol;
+    }
+
     public int getCode() {
         return code;
     }

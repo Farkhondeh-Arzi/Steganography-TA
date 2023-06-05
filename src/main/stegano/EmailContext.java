@@ -18,7 +18,6 @@ public class EmailContext {
                 sentence = new StringBuilder();
             }
         }
-        System.out.println(this);
     }
 
     public Set<String> getSentences() {

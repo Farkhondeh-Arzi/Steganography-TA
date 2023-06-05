@@ -2,6 +2,8 @@ package main;
 
 import main.stegano.EmailContext;
 
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -24,6 +26,9 @@ public class Main {
         EmailContext emailContext = new EmailContext(coverMessage);
 
         EMailSteganography eMailSteganography = new EMailSteganography(emailContext);
-        eMailSteganography.embedMessage(secretMessage, coverMessage);
+        Set<String> emailAddresses = eMailSteganography.embedMessage(secretMessage, coverMessage);
+
+        System.out.println("extracting:::::::::::::");
+        eMailSteganography.extractMessage(emailAddresses);
     }
 }

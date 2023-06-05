@@ -8,13 +8,22 @@ public class BitUtils {
     public static String fixSizeBits(int number, int fixedNumber) {
         StringBuilder fixedSizeZeros = new StringBuilder();
 
-        for (int i = 0; i < fixedNumber; i++) {
-            fixedSizeZeros.append("0");
-        }
+        fixedSizeZeros.append("0".repeat(Math.max(0, fixedNumber)));
 
         String bitStream = Integer.toBinaryString(number);
 
         return fixedSizeZeros.substring(0, fixedSizeZeros.length() - bitStream.length()) + bitStream;
+    }
+
+    public static String addZeroBefore(int number, int zeros) {
+        StringBuilder fixedSizeString = new StringBuilder();
+
+        String bitStream = Integer.toBinaryString(number);
+
+        fixedSizeString.append("0".repeat(Math.max(0, zeros)));
+        fixedSizeString.append(bitStream);
+
+        return fixedSizeString.toString();
     }
 
     public static String convertIntegerToBinary(int integer) {
